@@ -30,8 +30,7 @@ $(document).ready(function () {
     request.send();
 
     function getElements(response) {
-      $(".LLC-conversion").text(`${response.conversion_rates.USD}`);
-
+      $(".LLC-conversion").text(numinput * `${response.conversion_rates.USD}`);
       $(".date").text(`${response.time_last_update_utc}`);
       $(".showRates").text(`${response.conversion_rates}`);
       $(".result").text(`${response.result}.`);
