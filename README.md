@@ -31,13 +31,14 @@ output: 50 USD is 75 EUR
 
 ## Setup/Installation Requirements/API
 
-Clone this repository
-Open index.html in a browser
-
+- Clone this repository
 - visit https://www.exchangerate-api.com/
-- access an API key by signing up with an email through the "Free Plan"
+- Input your email address and click the "Get Free Key" button.
+- You'll be prompted to create an account with your email, first name and a password. Agree to the terms of use and click "Get Started!"
+- At this point, you'll be able to access a dashboard that includes your API key as well as your remaining API calls for the month.
 - copy that key and create a .env file within the project and type API_KEY =[Your Key].
 - Save
+- index.html
 
 ## Known Bugs
 

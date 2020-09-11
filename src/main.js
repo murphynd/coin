@@ -8,15 +8,11 @@ $(document).ready(function () {
     event.preventDefault();
     const LCC = $("#LLC").val();
     let numinput = $("#numinput").val();
-    console.log(numinput);
     $(".con-title").text(LCC);
-
-    console.log(LLC);
-    $(".num").text(numinput);
+    $(".num").text(numinput + "USD");
 
     let request = new XMLHttpRequest();
-    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/america`;
-    console.log(process.env.API_KEY);
+    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${LCC}`;
 
     request.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
@@ -25,7 +21,7 @@ $(document).ready(function () {
         console.log(response);
       } else {
         console.log("bad request");
-        console.log(this.response);
+        console.log(response);
         $(".error").text("bad request");
       }
     };
@@ -35,7 +31,7 @@ $(document).ready(function () {
 
     function getElements(response) {
       $(".LLC-conversion").text(numinput * `${response.conversion_rates.USD}`);
-      $(".date").text(`${response.time_last_update_utc}`);
+      $(".date").text(`Last Updated${response.time_last_update_utc}`);
       $(".showRates").text(`${response.conversion_rates}`);
       $(".result").text(`${response.result}.`);
       $(".author").text(`${response.terms_of_use}`);
