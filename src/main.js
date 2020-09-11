@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 
 $(document).ready(function () {
-  $("#weatherLocation").click(function () {
+  $("#Exchange").click(function () {
     const LCC = $("#LLC").val();
     let amount = $(".amount").val();
 
@@ -24,12 +24,12 @@ $(document).ready(function () {
     request.send();
 
     function getElements(response) {
-      $(".LLC-choice").text(`${response}.`);
-      $(".LLC-conversion").text(`${response}`);
-      $(".date").text(`${response}.`);
-      $(".showRates").text(`${response}`);
-      $(".result").text(`${response}.`);
-      $(".Error-Type").text(`${response}.`);
+      $(".LLC-choice").text(`${response.base_code}.`);
+      // $(".LLC-conversion").text(`${response.conversion_rates.AUD}`);
+      // $(".date").text(`${response.time_last_update_utc}.`);
+      // $(".showRates").text(`${response.conversion_rates}`);
+      // $(".result").text(`${response.result}.`);
+      // $(".author").text(`${response.terms_of_use}`);
     }
   });
 });

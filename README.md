@@ -21,6 +21,14 @@ For this week's project, you'll create a currency exchange application. A user s
 
 ## Specs
 
+spec: need input from user on currency choice, ammount, to what currency
+input: \$50 USD to ? EUR
+output: 50.00 USD and EUR selected
+
+spec: a function to multiply the ammount user inputs against the output the api gives
+input 1 usd is 1.5 EUR (user input was \$50)
+output: 50 USD is 75 EUR
+
 ## Setup/Installation Requirements/API
 
 Clone this repository

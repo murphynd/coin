@@ -6,28 +6,34 @@
   <body>
     <div id="container">
       <div id="jumbotron">
-        <h2>Welcome to the Currency Exchange</h2>
+        <h2>Welcome</h2>
       </div>
-      <div class="card border-success mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
+      <div class="card border-success">
+        <div class="card-header">Currency Exchange</div>
         <div class="card-body text-success">
-          <h5 class="card-title">Success card title</h5>
-          <p class="card-text">
-            <form>
+          <h5><span class="LLC-conversion"></span></h5>
+          Hello
+          <span class="LLC-choice"></span>
+          <span class="date"></span>
+          <form id="Exchange">
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" placeholder="First name">
+                <input type="number" class="amount" />
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="Last name">
+                <select multiple class="form-control" id="LLC">
+                  <option>USD</option>
+                  <option>EUR</option>
+                  <option>AUD</option>
+                  <option>CZK</option>
+                  <option>PEN</option>
+                </select>
               </div>
             </div>
+            <button type="submit" class="btn btn-success">Find Rate</button>
           </form>
-        </p>
         </div>
       </div>
-
-      </form>
     </div>
   </body>
 </html>
