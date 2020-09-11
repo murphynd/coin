@@ -10,16 +10,6 @@ import ConversionService from "../src/js/conversionService";
 //   $(".showHumidity").text("");
 //   $(".showTemp").text("");
 // }
-// function getElements(response) {
-//   let numinput = $("#numinput").val();
-//   if (response.main) {
-//     $(".date").text(`Last Updated ${response.time_last_update_utc}`);
-//     $(".author").text(`${response.terms_of_use}`);
-//   } else {
-//     $(".showErrors").text(`There was an error: ${response}`);
-//   }
-// }
-
 // function convertMoney(response, numinput) {
 //   let num = numinput;
 //   let conversion = num * response;
@@ -31,17 +21,27 @@ import ConversionService from "../src/js/conversionService";
 //   console.log(response)
 // }
 
+function getElements(response) {
+  if (response) {
+    $(".base").text(`${response.base_code}`);
+    $(".date").text(`Last Updated ${response.time_last_update_utc}`);
+    $(".author").text(`${response.terms_of_use}`);
+  } else {
+    $(".showErrors").text(`There was an error: ${response}`);
+  }
+}
+
 $(document).ready(function () {
   $("#Exchange").submit(function () {
-    event.preventDefault();
-    let LCC = $("#LLC").val();
-    let numinput = $("#numinput").val();
+    let LLC = $("#LLC").val();
     ConversionService.getConversion(LLC).then(function (response) {
       getElements(response);
       console.log(response);
     });
+    event.preventDefault();
   });
 });
+
 // $(document).ready(function () {
 //   $("#Exchange").submit(function () {
 //     event.preventDefault();

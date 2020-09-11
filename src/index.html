@@ -4,7 +4,24 @@
     <title>Currency Exchange</title>
   </head>
   <body>
-    <div id="container">
+    <form id="Exchange">
+      <div class="row">
+        <div class="col">
+          <label>From USD</label>
+          <input type="number" id="numinput" placeholder="Enter Amount" />
+        </div>
+        <div class="col">
+          <label>Choose Currency</label>
+          <input type="text" id="LLC" placeholder="ex. AUD" />
+        </div>
+        <button type="submit" class="btn btn-success">Find Rate</button>
+      </div>
+    </form>
+    <span class="base"></span>
+    <span class="date"></span>
+    <span class="author"></span>
+
+    <!-- <div id="container">
       <div class="card border-success">
         <div class="card-header">Currency Exchange</div>
 
@@ -31,14 +48,14 @@
               <div class="col">
                 <label>Choose Currency</label>
                 <input type="text" id="LLC" placeholder="ex. AUD" />
-                <!-- <select multiple class="form-control" id="LLC">
+                <select multiple class="form-control" id="LLC">
                   <option>BGN</option>
                   <option>EUR</option>
                   <option>AUD</option>
                   <option>CZK</option>
                   <option>PEN</option>
                 </select> -->
-              </div>
+    <!-- </div>
             </div>
             <p><span class="result"></span></p>
             <p>Powered by <span class="author"></span></p>
@@ -46,6 +63,6 @@
           </form>
         </div>
       </div>
-    </div>
+    </div> -->
   </body>
 </html>
