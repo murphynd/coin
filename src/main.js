@@ -4,9 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 
 $(document).ready(function () {
-  $("#Exchange").click(function () {
+  $("#Exchange").submit(function () {
+    event.preventDefault();
     const LCC = $("#LLC").val();
-    let amount = $(".amount").val();
+    // let amount = $(".amount").val();
 
     let request = new XMLHttpRequest();
     const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${LCC}`;
@@ -25,11 +26,11 @@ $(document).ready(function () {
 
     function getElements(response) {
       $(".LLC-choice").text(`${response.base_code}.`);
-      // $(".LLC-conversion").text(`${response.conversion_rates.AUD}`);
-      // $(".date").text(`${response.time_last_update_utc}.`);
+      $(".LLC-conversion").text(`${response.conversion_rates.AUD}`);
+      $(".date").text(`${response.time_last_update_utc}`);
       // $(".showRates").text(`${response.conversion_rates}`);
-      // $(".result").text(`${response.result}.`);
-      // $(".author").text(`${response.terms_of_use}`);
+      $(".result").text(`${response.result}.`);
+      $(".author").text(`${response.terms_of_use}`);
     }
   });
 });
