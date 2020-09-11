@@ -15,14 +15,12 @@ import ConversionService from "../src/js/conversionService";
 //   let conversion = num * response;
 //   return conversion;
 // }
-// async function makeApiCall(LLC) {
-//   const response = await ConversionService.getConversion(LLC);
-//   getElements(response);
-//   console.log(response)
-// }
 
-function getElements(response) {
+function getElements(response, numinput) {
+  let num = numinput;
+  console.log(num);
   if (response) {
+    $(".LLC-conversion").text(num * `${response.conversion_rates.USD}`);
     $(".base").text(`${response.base_code}`);
     $(".date").text(`Last Updated ${response.time_last_update_utc}`);
     $(".author").text(`${response.terms_of_use}`);
@@ -30,13 +28,14 @@ function getElements(response) {
     $(".showErrors").text(`There was an error: ${response}`);
   }
 }
-
 $(document).ready(function () {
   $("#Exchange").submit(function () {
     let LLC = $("#LLC").val();
+    let numinput = $("#numinput").val();
     ConversionService.getConversion(LLC).then(function (response) {
-      getElements(response);
+      getElements(response, numinput);
       console.log(response);
+      console.log(numinput);
     });
     event.preventDefault();
   });
