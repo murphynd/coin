@@ -2,6 +2,7 @@ import $ from "jquery";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
+import ConversionService
 
 $(document).ready(function () {
   $("#Exchange").submit(function () {
