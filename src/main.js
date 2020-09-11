@@ -15,7 +15,7 @@ $(document).ready(function () {
     $(".num").text(numinput);
 
     let request = new XMLHttpRequest();
-    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${LCC}`;
+    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/america`;
     console.log(process.env.API_KEY);
 
     request.onreadystatechange = function () {
@@ -23,6 +23,10 @@ $(document).ready(function () {
         const response = JSON.parse(this.responseText);
         getElements(response);
         console.log(response);
+      } else {
+        console.log("bad request");
+        console.log(this.response);
+        $(".error").text("bad request");
       }
     };
 
