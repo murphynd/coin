@@ -9,7 +9,7 @@ $(document).ready(function () {
     const LCC = $("#LLC").val();
     let numinput = $("#numinput").val();
     $(".con-title").text(LCC);
-    $(".num").text(numinput + "USD");
+    $(".num").text(numinput + " USD");
 
     let request = new XMLHttpRequest();
     const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${LCC}`;
@@ -19,11 +19,9 @@ $(document).ready(function () {
         const response = JSON.parse(this.responseText);
         getElements(response);
         console.log(response);
-      } else {
-        console.log("bad request");
-        console.log(response);
-        $(".error").text("bad request");
       }
+      console.log(this.response);
+      console.log(this.status);
     };
 
     request.open("GET", url, true);
@@ -31,7 +29,7 @@ $(document).ready(function () {
 
     function getElements(response) {
       $(".LLC-conversion").text(numinput * `${response.conversion_rates.USD}`);
-      $(".date").text(`Last Updated${response.time_last_update_utc}`);
+      $(".date").text(`Last Updated ${response.time_last_update_utc}`);
       $(".showRates").text(`${response.conversion_rates}`);
       $(".result").text(`${response.result}.`);
       $(".author").text(`${response.terms_of_use}`);
