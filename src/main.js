@@ -3,35 +3,18 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import ConversionService from "../src/js/conversionService";
+import { clearFields } from "../src/js/clearFields";
+import { getElements } from "../src/js/GetElement";
+import { convertMoney } from "../src/js/convertMoney";
 
-// function clearFields() {
-//   $("#numinput").val("");
-//   $(".showErrors").text("");
-//   $(".showHumidity").text("");
-//   $(".showTemp").text("");
-// }
-// function convertMoney(response, numinput) {
-//   let num = numinput;
-//   let conversion = num * response;
-//   return conversion;
-// }
-
-//$(".LLC-conversion").text(num * `${response.conversion_rates.USD}`)
-function getElements(response) {
-  if (response) {
-    $(".base").text(`${response.base_code}`);
-    $(".date").text(`Last Updated ${response.time_last_update_utc}`);
-    $(".author").text(`${response.terms_of_use}`);
-  } else {
-    $(".showErrors").text(`There was an error: ${response.error_type}`);
-  }
-}
 $(document).ready(function () {
   $("#Exchange").submit(function () {
     let LLC = $("#LLC").val();
-    // let numinput = $("#numinput").val();
+    let numinput = $("#numinput").val();
     ConversionService.getConversion(LLC).then(function (response) {
+      clearFields();
       getElements(response);
+      convertMoney(response, numinput);
       console.log(response);
     });
     event.preventDefault();
