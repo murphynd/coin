@@ -5,7 +5,8 @@ import "./css/styles.css";
 
 $(document).ready(function () {
   $("#weatherLocation").click(function () {
-    const LCC = $("#CurrencyFrom").val();
+    const LCC = $("#LLC").val();
+    let amount = $(".amount").val();
 
     let request = new XMLHttpRequest();
     const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${LCC}`;
@@ -23,15 +24,12 @@ $(document).ready(function () {
     request.send();
 
     function getElements(response) {
-      $(".exchageFrom").text(`You requested information on ${response.name}.`);
-      $(".ExchangeTo").text(
-        `The humidity in ${zipcode} is ${response.main.humidity}%`
-      );
-      $(".showRates").text(
-        `The temperature in fahrenheit is  ${temp(response.main.temp)} degrees.`
-      );
-      $(".result").text();
-      $(".Error-Type").text();
+      $(".LLC-choice").text(`${response}.`);
+      $(".LLC-conversion").text(`${response}`);
+      $(".date").text(`${response}.`);
+      $(".showRates").text(`${response}`);
+      $(".result").text(`${response}.`);
+      $(".Error-Type").text(`${response}.`);
     }
   });
 });
