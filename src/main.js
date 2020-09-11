@@ -9,6 +9,7 @@ $(document).ready(function () {
     const LCC = $("#LLC").val();
     let numinput = $("#numinput").val();
     console.log(numinput);
+    $(".con-title").text(LCC);
 
     console.log(LLC);
     $(".num").text(numinput);
@@ -29,9 +30,8 @@ $(document).ready(function () {
     request.send();
 
     function getElements(response) {
-      $(".LLC-choice").text(`${response.base_code}.`);
       $(".LLC-conversion").text(`${response.conversion_rates.USD}`);
-      $(".con-title").text("AUD");
+
       $(".date").text(`${response.time_last_update_utc}`);
       $(".showRates").text(`${response.conversion_rates}`);
       $(".result").text(`${response.result}.`);
