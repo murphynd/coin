@@ -12,7 +12,7 @@
         <div class="card-header">Currency Exchange</div>
         <div class="card-body text-success">
           <h5><span class="LLC-conversion"></span></h5>
-          Hello
+          Hello <span class="amount"></span>
           <span class="LLC-choice"></span>
           <p><span class="date"></span></p>
           <form id="Exchange">
@@ -22,6 +22,26 @@
               </div>
               <div class="col">
                 <select multiple class="form-control" id="LLC">
+                  <option>USD</option>
+                  <option>EUR</option>
+                  <option>AUD</option>
+                  <option>CZK</option>
+                  <option>PEN</option>
+                </select>
+              </div>
+            </div>
+            Exchange
+            <div class="row">
+              <div class="col">
+                <input
+                  class="form-control"
+                  id="disabledInput"
+                  type="text"
+                  disabled
+                />
+              </div>
+              <div class="col">
+                <select multiple class="form-control" id="LLC-con">
                   <option>USD</option>
                   <option>EUR</option>
                   <option>AUD</option>

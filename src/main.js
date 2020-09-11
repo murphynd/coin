@@ -7,7 +7,8 @@ $(document).ready(function () {
   $("#Exchange").submit(function () {
     event.preventDefault();
     const LCC = $("#LLC").val();
-    // let amount = $(".amount").val();
+    let llcCon = $("#con").val;
+    let amount = $(".amount").val();
 
     let request = new XMLHttpRequest();
     const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${LCC}`;
@@ -26,7 +27,9 @@ $(document).ready(function () {
 
     function getElements(response) {
       $(".LLC-choice").text(`${response.base_code}.`);
-      $(".LLC-conversion").text(`${response.conversion_rates.AUD}`);
+      $("amount").text(amount);
+      console.log(amount);
+      $(".LLC-conversion").text(`${response.conversion_rates}`);
       $(".date").text(`${response.time_last_update_utc}`);
       // $(".showRates").text(`${response.conversion_rates}`);
       $(".result").text(`${response.result}.`);
