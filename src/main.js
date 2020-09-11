@@ -16,26 +16,23 @@ import ConversionService from "../src/js/conversionService";
 //   return conversion;
 // }
 
-function getElements(response, numinput) {
-  let num = numinput;
-  console.log(num);
+//$(".LLC-conversion").text(num * `${response.conversion_rates.USD}`)
+function getElements(response) {
   if (response) {
-    $(".LLC-conversion").text(num * `${response.conversion_rates.USD}`);
     $(".base").text(`${response.base_code}`);
     $(".date").text(`Last Updated ${response.time_last_update_utc}`);
     $(".author").text(`${response.terms_of_use}`);
   } else {
-    $(".showErrors").text(`There was an error: ${response}`);
+    $(".showErrors").text(`There was an error: ${response.error_type}`);
   }
 }
 $(document).ready(function () {
   $("#Exchange").submit(function () {
     let LLC = $("#LLC").val();
-    let numinput = $("#numinput").val();
+    // let numinput = $("#numinput").val();
     ConversionService.getConversion(LLC).then(function (response) {
-      getElements(response, numinput);
+      getElements(response);
       console.log(response);
-      console.log(numinput);
     });
     event.preventDefault();
   });
