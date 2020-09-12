@@ -3,9 +3,28 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import ConversionService from "../src/js/conversionService";
-import { clearFields } from "../src/js/clearFields";
-import { getElements } from "../src/js/GetElement";
-import { convertMoney } from "../src/js/convertMoney";
+
+function clearFields() {
+  $(".result").text("");
+  $(".base").text("");
+  $(".date").text("");
+  $(".author").text("");
+}
+function convertMoney(response, numinput) {
+  let num = numinput;
+  $(".LLC-conversion").text(num * `${response.conversion_rates.USD}`);
+}
+function getElements(response) {
+  console.log(response);
+  if (response) {
+    $(".result").text(`${response.result}.`);
+    $(".base").text(`${response.base_code}`);
+    $(".date").text(`Last Updated ${response.time_last_update_utc}`);
+    $(".author").text(`${response.terms_of_use}`);
+  } else {
+    $(".showErrors").text(`There was an error: ${response.message}`);
+  }
+}
 
 $(document).ready(function () {
   $("#Exchange").submit(function () {
