@@ -8,7 +8,6 @@ function clearFields() {
   $(".result").text("");
   $(".base").text("");
   $(".date").text("");
-  $(".author").text("");
 }
 function convertMoney(response, numinput) {
   let num = numinput;
@@ -20,7 +19,6 @@ function getElements(response) {
     $(".result").text(`${response.result}.`);
     $(".base").text(`${response.base_code}`);
     $(".date").text(`Last Updated ${response.time_last_update_utc}`);
-    $(".author").text(`${response.terms_of_use}`);
   } else {
     $(".showErrors").text(`There was an error: ${response.message}`);
   }
@@ -36,6 +34,7 @@ $(document).ready(function () {
       convertMoney(response, numinput);
       console.log(response);
     });
+    $(".num").text(numinput);
     event.preventDefault();
   });
 });

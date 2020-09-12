@@ -5,38 +5,127 @@
   </head>
   <body>
     <div class="container">
-      <div class="card mb-3">
-        <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card" style="width: 30rem">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h1 class="card-title">Currency Exchange</h1>
           <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+            <span class="num"></span> USD =
+            <span class="base"></span>
+            <span class="LLC-conversion"></span>
           </p>
           <p class="card-text">
-            <small class="text-muted">Last updated 3 mins ago</small>
+            <small class="text-muted"><span class="date"></span> </small>
           </p>
+          <form id="Exchange">
+            <div class="col">
+              <h2>USD</h2>
+
+              <input
+                type="number"
+                id="numinput"
+                placeholder="Enter Amount"
+                required
+              />
+            </div>
+            <div class="col">
+              <h2>Choose Currency</h2>
+              <input type="text" id="LLC" placeholder="ex. AUD" required />
+            </div>
+            <br />
+
+            <button type="submit" class="btn btn-primary">Find Rate</button>
+          </form>
+          <small
+            >Powered by
+            <a href="https://www.exchangerate-api.com/">ExchangeRate API</a>
+          </small>
+          <br />
+
+          <span class="showError"></span>
+          <span class="result"></span>
         </div>
       </div>
-      <form id="Exchange">
-        <div class="row">
-          <div class="col">
-            <label>From USD</label>
-            <input type="number" id="numinput" placeholder="Enter Amount" />
-          </div>
-          <div class="col">
-            <label>Choose Currency</label>
-            <input type="text" id="LLC" placeholder="ex. AUD" />
-          </div>
-          <button type="submit" class="btn btn-success">Find Rate</button>
+      <div class="card" style="width: 30rem">
+        <div class="card-body">
+          <h5 class="card-title">Supported Currencies</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            List of currency codes and countries supported
+          </h6>
+          <p class="card-text"></p>
+          <ul>
+            <li>AED UAE Dirham United Arab Emirates</li>
+            <li>ARS Argentine Peso Argentina</li>
+            <li>AUD Australian Dollar Australia</li>
+            <li>BGN Bulgarian Lev Bulgaria</li>
+            <li>BRL Brazilian Real Brazil</li>
+            <li>BSD Bahamian Dollar Bahamas</li>
+            <li>CAD Canadian Dollar Canada</li>
+            <li>CHF Swiss Franc Switzerland</li>
+            <li>CLP Chilean Peso Chile</li>
+            <li>CNY Chinese Renminbi China</li>
+            <li>COP Colombian Peso Colombia</li>
+            <li>CZK Czech Koruna Czech Republic</li>
+            <li>DKK Danish Krone Denmark</li>
+            <li>DOP Dominican Peso Dominican Republic</li>
+            <li>EGP Egyptian Pound Egypt</li>
+            <li>EUR Euro Germany</li>
+            <li>EUR Euro Austria</li>
+            <li>EUR Euro Belgium</li>
+            <li>EUR Euro Cyprus</li>
+            <li>EUR Euro Estonia</li>
+            <li>EUR Euro Finland</li>
+            <li>EUR Euro France</li>
+            <li>EUR Euro Greece</li>
+            <li>EUR Euro Ireland</li>
+            <li>EUR Euro Italy</li>
+            <li>EUR Euro Latvia</li>
+            <li>EUR Euro Lithuania</li>
+            <li>EUR Euro Luxembourg</li>
+            <li>EUR Euro Malta</li>
+            <li>EUR Euro Netherlands</li>
+            <li>EUR Euro Portugal</li>
+            <li>EUR Euro Slovakia</li>
+            <li>EUR Euro Slovenia</li>
+            <li>EUR Euro Spain</li>
+            <li>FJD Fiji Dollar Fiji</li>
+            <li>GBP Pound Sterling United Kingdom</li>
+            <li>GTQ Guatemalan Quetzal Guatemala</li>
+            <li>HKD Hong Kong Dollar Hong Kong</li>
+            <li>HRK Croatian Kuna Croatia</li>
+            <li>HUF Hungarian Forint Hungary</li>
+            <li>IDR Indonesian Rupiah Indonesia</li>
+            <li>ILS Israeli New Shekel Israel</li>
+            <li>INR Indian Rupee India</li>
+            <li>ISK Icelandic Krona Iceland</li>
+            <li>JPY Japanese Yen Japan</li>
+            <li>KRW South Korean Won South Korea</li>
+            <li>KZT Kazakhstani Tenge Kazakhstan</li>
+            <li>MVR Maldivian Rufiyaa Maldives</li>
+            <li>MXN Mexican Peso Mexico</li>
+            <li>MYR Malaysian Ringgit Malaysia</li>
+            <li>NOK Norwegian Krone Norway</li>
+            <li>NZD New Zealand Dollar New Zealand</li>
+            <li>PAB Panamanian Balboa Panama</li>
+            <li>PEN Peruvian Sol Peru</li>
+            <li>PHP Philippine Peso Philippines</li>
+            <li>PKR Pakistani Rupee Pakistan</li>
+            <li>PLN Polish Zloty Poland</li>
+            <li>PYG Paraguayan Guarani Paraguay</li>
+            <li>RON Romanian Leu Romania</li>
+            <li>RUB Russian Ruble Russia</li>
+            <li>SAR Saudi Riyal Saudi Arabia</li>
+            <li>SEK Swedish Krona Sweden</li>
+            <li>SGD Singapore Dollar Singapore</li>
+            <li>THB Thai Baht Thailand</li>
+            <li>TRY Turkish Lira Turkey</li>
+            <li>TWD New Taiwan Dollar Taiwan</li>
+            <li>UAH Ukrainian Hryvnia Ukraine</li>
+            <li>USD United States Dollar United States</li>
+            <li>UYU Uruguayan Peso Uruguay</li>
+            <li>ZAR South African Rand South Africa</li>
+          </ul>
         </div>
-      </form>
-      <span class="base"></span>
-      <span class="LLC-conversion"></span>
-      <span class="date"></span>
-      <span class="author"></span>
-      <span class="showError"></span>
-      <span class="result"></span>
+      </div>
     </div>
   </body>
 </html>
